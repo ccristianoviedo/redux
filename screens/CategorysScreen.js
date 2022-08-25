@@ -11,7 +11,6 @@ export default function CategoryScreen({ navigation }) {
 
     const dispatch = useDispatch();
 
-
     const handleSelectedCategory = (item) =>{
       dispatch(selectCategory(item.id))    
       navigation.navigate('Products', {

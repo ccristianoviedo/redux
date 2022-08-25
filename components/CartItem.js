@@ -13,7 +13,7 @@ const CartItem = ({item, onDelete}) => {
         </View>
         <View style={styles.detail}>
             <View >
-                <Text>Cantidad: {item.quatity}</Text>
+                <Text style={styles.text}>Cantidad: {item.quatity}</Text>
                 <Text>{item.price}</Text>
             </View>
             <TouchableOpacity
@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
     },
     text:{
         fontSize:16,
-        fontFamily:'UbuntuBold'
+        fontFamily:'UbuntuBold',
+        color:'black'
     },
 })
 export default CartItem 

@@ -8,14 +8,10 @@ const initialState ={
 
 const CategoryReducer = (state= initialState, action)=>{
     switch (action.type) {
-        case SELECT_CATEGORY:
-            
-            const IndexCategory = state.categories.findIndex(category=>category.id === action.categoryID)
-
-            if(IndexCategory === 2) return state
-
+        case SELECT_CATEGORY:            
+            const IndexCategory = state.categories.findIndex(cat=>cat.id === action.categoryID)
+            if(IndexCategory === -1) return state
             return {...state, selected: state.categories[IndexCategory]}
-
         default:
             return state
     }

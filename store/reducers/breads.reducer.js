@@ -12,13 +12,12 @@ const BreadReducer = (state= initialState, action)=>{
         switch (action.type) {
             case SELECT_BREAD:
                 return {
-                    ...state, selected:state.breads.find(bread=>bread.id=== action.breadID)
+                    ...state, selected: state.breads.find(bread=>bread.id === action.breadID)
                 }
             case FILTERED_BREAD:
                 return {
-                    ...state, filteredBread:state.breads.filter(bread=>bread.category=== action.categoryID)
-                }             
-        
+                    ...state, filteredBread: state.breads.filter(bread=>bread.category === action.categoryID)
+                }            
             default:
                 return state
         

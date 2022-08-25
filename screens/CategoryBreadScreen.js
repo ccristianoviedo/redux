@@ -1,17 +1,17 @@
 import React, {useEffect} from 'react';
-import {FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import BreadItem from '../components/breadItem'
 
 import {useSelector, useDispatch} from 'react-redux'
 
-import {filteredBread} from '../store/actions/bread.action'
-import { selectBread } from '../store/actions/bread.action';
+import {filteredBread, selectBread} from '../store/actions/bread.action'
 
-export default function CategoryBreadScreen({navigation, route}) {
+
+export default function CategoryBreadScreen({navigation}) {
 
     const dispatch = useDispatch();
 
-    const categoryBreads = useSelector(store=> store.breads.filteredBreads)
+    const categoryBreads = useSelector(store=> store.breads.filteredBread)
     
     const category= useSelector(store=>store.categories.selected);
 

@@ -3,8 +3,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StyleSheet, View, Text } from "react-native";
 import ShopNavigator from "../navigation/ShopNavigator";
 import CartNavigator from "../navigation/CartNavigator";
+import OrderItemScreen from "../screens/orderItemScreen";
 import Ionicons from '@expo/vector-icons/Ionicons'
 import OrderNavigator from "./OrderNavigator";
+import PlaceNavigator from "./PlaceNavigator";
 
 
 const BottomsTabs = createBottomTabNavigator()
@@ -49,7 +51,7 @@ const TabNavigator = () =>{
             />
             <BottomsTabs.Screen 
                 name='OrderTab'
-                component={OrderNavigator}
+                component={OrderItemScreen}
                 options={{
                     tabBarIcon: ({focused})=>(
                         <View style={styles.item}>
@@ -61,6 +63,18 @@ const TabNavigator = () =>{
                     )
                 }}
             />
+            <BottomsTabs.Screen
+            name="Location"
+            component={PlaceNavigator}
+            options={{
+                tabBarIcon: ({focused}) => (
+                    <View style={styles.item}>
+                        <Ionicons name='location-outline' size={24} color={focused ? 'blue' : 'black'} />
+                        <Text style={{ color: focused ? 'blue' : 'black'}}>Location</Text>
+                    </View>
+                )
+            }}
+        />
         </BottomsTabs.Navigator>
     )
 }

@@ -1,0 +1,38 @@
+import React from 'react'
+import { FlatList, Text } from 'react-native'
+import { useSelector } from 'react-redux'
+import PlaceItem from '../components/PlaceItems'
+
+const PlaceListScreen = ({ navigation }) => {
+    const places = useSelector(state => state.places.places)
+
+    const renderItem = (data) => (
+        <PlaceItem
+            title={data?.item.title}
+            image={data?.item.image}
+            address="avenida siempre viva 677"
+            onSelect={() => navigation.navigate('Detalle', {
+                placeID: data.item.id
+            })}
+        />
+    )
+    console.log(places, 'soy places')
+
+    return (
+        <>
+        { places?.length > 0 ? (
+                <FlatList
+                    data={places}
+                    renderItem={renderItem}
+                    keyExtractor={(item) => Date.now()}
+                />
+            ) : (
+                <Text>No hay lugares</Text>
+            ) 
+        }
+        </>
+    )
+}
+
+
+export default PlaceListScreen

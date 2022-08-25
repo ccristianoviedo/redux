@@ -3,7 +3,7 @@ import { Platform} from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import {COLORS} from '../constants/colors'
-import OrdersScreen from "../screens/OrdersScreen";
+import OrderItemScreen from "../screens/orderItemScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,7 +23,7 @@ const OrderNavigator =()=>{
         >
             <Stack.Screen 
                 name="Order" 
-                component={OrdersScreen} 
+                component={OrderItemScreen} 
                 options={{title:'carrito'}}                          
             />
         </Stack.Navigator>
